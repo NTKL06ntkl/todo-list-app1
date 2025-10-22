@@ -41,3 +41,33 @@ if __name__ == "__main__":
     
     # Liệt kê danh sách công việc
     list_tasks()
+def delete_task(task_index):
+    """
+    Xóa một công việc khỏi danh sách dựa trên chỉ số.
+
+    Tham số:
+    - task_index: số thứ tự công việc (bắt đầu từ 0)
+
+    Nếu số thứ tự không hợp lệ, in thông báo lỗi.
+    """
+    if 0 <= task_index < len(tasks):
+        removed_task = tasks.pop(task_index)
+        print(f"🗑️ Đã xóa công việc: {removed_task['name']}")
+    else:
+        print("❌ Không tồn tại công việc với số thứ tự này.")
+if __name__ == "__main__":
+    print("Chào mừng đến với ứng dụng To-Do List!")
+    
+    # Thêm công việc
+    add_task("Học bài Git")
+    add_task("Làm bài tập")
+    
+    # Đánh dấu công việc hoàn thành
+    complete_task(0)
+    
+    # Xóa một công việc (ví dụ xóa công việc thứ 2)
+    delete_task(1)
+    
+    # Liệt kê danh sách cuối cùng
+    list_tasks()
+
